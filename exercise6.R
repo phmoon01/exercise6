@@ -15,11 +15,15 @@ func3 <- function(x){
 
 
 func4 <- function(l){
-  sort(l, decreasing = FALSE)
-  if length(l %% 2 = 0){
-    l
-  }
-  else{
-    
+  a <- length(l)
+  b <- sort(l)
+  ifelse(a%%2==1, b[(a+1)/2], mean(b[a/2+0:1]))
+}
+
+func5 <- function(nzero, r, time, K=100){
+  N <- numeric(time)
+  N[1] <- nzero
+  for (i in 1:time){
+    N[i + 1] <- N[i]*exp(r*(1 - N[i]/K))
   }
 }
